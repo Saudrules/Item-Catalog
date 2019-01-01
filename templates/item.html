@@ -1,0 +1,18 @@
+{% extends "main.html" %}
+{% block content %}
+{% include "ItemNav2.html" %}
+<!DOCTYPE html>
+	<html>
+	<head>
+	</head>
+		<body style="background-color: #0083B0 ">
+
+
+			<!-- Displey Item For Authorized users -->
+			<h4>{{ item.name }}</h4>
+			<p>{{ item.description }}</p>
+			<button><a href="{{ url_for('editItem' , item_id = item_id, category_id = category_id )}} ">Edit</a></button>
+			<button><a href="{{ url_for('deleteItem' , item_id = item_id, category_id = category_id )}}">Delete</a></button>
+		{% endblock %}
+		</body>
+	</html>

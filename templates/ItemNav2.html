@@ -1,0 +1,14 @@
+	<!-- A Navbar for 'item' -->
+	<nav class="navbar navbar-light" style="background-color: #0083B0;">
+			<h3>The Item Catalog</h3>
+			    <span class="navbar-text">
+
+					{% if 'username' not in login_session %}
+					<button name="login"> <a href="{{ url_for('showLogin') }}"> Login </a></button>
+					{% else %}
+					<button name="logout"> <a href="{{ url_for('gdisconnect') }}"> Logout </a></button>
+					{% endif %}
+					<button name = "add"><a href="{{ url_for('showCategory' , category_id = category_id) }}"> Back</a></button>
+					
+			    </span>
+		</nav>

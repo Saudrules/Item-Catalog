@@ -1,0 +1,36 @@
+<!-- The main category page for non-logged in users -->
+
+{% extends "main.html" %}
+{% block content %}
+{% include "ctgrynav.html" %}
+<!DOCTYPE html>
+	<html>
+	<head>
+	</head>
+		<body style="background-color: #0083B0 ">
+
+
+<div class = 'flash'>
+		      {% with messages = get_flashed_messages() %}
+      {% if messages %}
+          
+        <ul>
+        {% for message in messages %}
+            <li> <strong> {{ message }} </strong> </li>
+        {% endfor %}
+        </ul>
+        {% endif %}
+    {% endwith %}
+
+</div>
+			<!-- Display all items in a category -->
+			<h4>{{ thisCategory.name }}</h4>
+
+
+			{% for item in items %}
+			<h5><a href="{{ url_for('showItem' , item_id = item.id, category_id = category_id) }}">{{ item.name }}</a></h5>
+		
+		{% endfor %}
+	{% endblock %}
+		</body>
+	</html>	

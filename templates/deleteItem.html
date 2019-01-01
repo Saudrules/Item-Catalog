@@ -1,0 +1,26 @@
+{% extends "main.html" %}
+{% block content %}
+<!DOCTYPE html>
+<html>
+	<head>
+
+	</head>
+		<body style="background-color: #0083B0 ">
+
+			<nav class="navbar navbar-light" style="background-color: #0083B0;">
+			<h3>The Item Catalog</h3>
+			    <span class="navbar-text">
+					<button name="logout"> <a href="{{ url_for('gdisconnect') }}"> Logout </a></button>
+			    </span>
+			</nav>
+
+			<h4>Delete Item</h4>
+
+				<p>Are you sure you want to delete <strong>{{ item.name }}</strong></p>
+		<form action="{{ url_for('deleteItem' , category_id = category_id, item_id = item_id) }}" method="POST">
+		<button type="submit" value="delete" name="delete">Delete</button>
+		<button name="cancel"> <a href="{{ url_for('showItem' , item_id = item_id, category_id = category_id) }}"> Cancel</button>
+		</form>
+	{% endblock %}
+		</body>
+	</html>

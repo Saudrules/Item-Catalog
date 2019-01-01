@@ -1,0 +1,20 @@
+{% extends "main.html" %}
+{% block content %}
+{% include "ItemNav1.html" %}
+<!DOCTYPE html>
+	<html>
+	<head>
+	</head>
+		<body style="background-color: #0083B0 ">
+
+
+
+			<!-- Displey Item For Unauthorized users -->
+			<h4>{{ item.name }}</h4>
+			<p>{{ item.description }}</p>
+			<button name="Cancel"> <a href="{{ url_for('showCategory' , category_id = category_id) }}"> Back To Category </a></button>
+
+		{% endblock %}
+
+		</body>
+	</html>

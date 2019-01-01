@@ -1,0 +1,38 @@
+<!-- The main catalog page for logged in users -->
+
+{% extends "main.html" %}
+{% block content %}
+{% include "navbar.html" %}
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+	<body style="background-color: #0083B0;">
+
+		<div class = 'flash'>
+		      {% with messages = get_flashed_messages() %}
+      {% if messages %}
+          
+        <ul>
+        {% for message in messages %}
+            <li> <strong> {{ message }} </strong> </li>
+        {% endfor %}
+        </ul>
+        {% endif %}
+    {% endwith %}
+
+</div>
+	
+	<div style="margin-top: 50px">
+		<h4> Categories: </h4>
+
+			{% for category in catalog %}
+			<h5><a href="{{ url_for('showCategory' , category_id = category.id) }}">{{category.name}}</a></h5>
+
+		{% endfor %}
+	</div>
+
+		</div>
+		{% endblock %}
+	</body>
+</html>
